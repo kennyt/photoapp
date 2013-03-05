@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "photo@app.com"
+  default from: "localhost:3000/"
 
   def photo_post_inform(user)
     @user = user

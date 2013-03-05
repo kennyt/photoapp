@@ -29,6 +29,7 @@ $(function(){
                                   src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
                                   '">'+photoAuthorEmail+'</a> ~  ' + timeCreated +
                                   'ago')
+      $('.user-container').append('')
     })
   }
 
