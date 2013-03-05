@@ -1,0 +1,21 @@
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Upload photo</h3>
+  </div>
+  <div class="modal-body">
+    <p>choose a photo to upload</p>
+    <div class="new-photo-page">
+      <%= simple_form_for(@photo) do |f| %>
+        <p>
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </p>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

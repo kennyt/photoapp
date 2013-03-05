@@ -2,4 +2,4 @@
 <%= image_tag image_photo_path(photo), {class: 'user-photo',
                                         data_time: time_ago_in_words(photo.created_at),
                                         data_user: photo.user.id,
-                                        data_user_email: photo.user.email} %>
+                                        data_user_email: photo.user.username} %>

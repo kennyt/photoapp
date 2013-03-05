@@ -27,7 +27,7 @@ $(function(){
       $('.user-container').empty();
       $('.user-container').append('<img alt="Image" class="on-show-photo" src="'+
                                   src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
-                                  '">'+photoAuthorEmail+'</a>  ' + timeCreated +
+                                  '">'+photoAuthorEmail+'</a> ~  ' + timeCreated +
                                   'ago')
     })
   }

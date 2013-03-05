@@ -16,7 +16,7 @@
   <% if user_signed_in? %>
     <li><%= link_to 'home', root_path %></li>
     <li><%= link_to 'self', user_path(current_user) %></li>
-    <li><%= link_to 'upload', new_photo_path %></li>
+    <li><a href="#myModal" role="button" class="btn" data-toggle="modal">upload</a></li>
     <li><%= link_to 'sign out', destroy_user_session_url, :method => :delete %></li>
   <% end %>
 </ul>

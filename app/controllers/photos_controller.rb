@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.order('created_at DESC').all
+    @photo = Photo.new
   end
 
   def new
@@ -16,6 +17,7 @@ class PhotosController < ApplicationController
     @photo.image = image
 
     if @photo.save
+      UserMailer.photo_post_inform(current_user).deliver
       redirect_to photos_path
     else
       @photo = Photo.new
