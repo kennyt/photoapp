@@ -23,13 +23,12 @@ $(function(){
       var photoAuthor = $(this).attr('data_user');
       var photoAuthorEmail = $(this).attr('data_user_email')
       var src = $(this).attr('src')
-      var that = this;
 
       $('.user-container').empty();
-      $('.user-container').append('<a href="/users/'+photoAuthor+
+      $('.user-container').append('<img alt="Image" class="on-show-photo" src="'+
+                                  src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
                                   '">'+photoAuthorEmail+'</a>  ' + timeCreated +
-                                  'ago' + '<img alt="Image" class="on-show-photo" src="'+
-                                  src+'">')
+                                  'ago')
     })
   }
 

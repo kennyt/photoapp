@@ -24,6 +24,16 @@ body {
   /*background: #CDEEE0;*/
 }
 
+.login-page {
+  background: white;
+  margin-top: 5%;
+  width: 400px;
+}
+
+.alert-container {
+  color: white;
+}
+
 .user-photo {
   width: 70%;
   padding: 30px;
@@ -63,7 +73,8 @@ body {
 .user-container {
   width: 690px;
   height: 700px;
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
   float: left;
   margin-left: 47%;
   position: fixed;
@@ -110,3 +121,12 @@ body {
   border: solid black 2px;
 }
 
+.photo-info {
+  color: white;
+  margin-left: 260px;
+}
+
+h1 {
+  margin-left: 270px;
+  color: white;
+}
