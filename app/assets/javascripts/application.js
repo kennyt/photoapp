@@ -12,4 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+
+
+$(function(){
+  var clickPictureToShow = function() {
+    $('body').on('click', '.user-photo', function(){
+      var timeCreated = $(this).attr('data_time');
+      var photoAuthor = $(this).attr('data_user');
+      var photoAuthorEmail = $(this).attr('data_user_email')
+      var src = $(this).attr('src')
+      var that = this;
+
+      $('.user-container').empty();
+      $('.user-container').append('<a href="/users/'+photoAuthor+
+                                  '">'+photoAuthorEmail+'</a>  ' + timeCreated +
+                                  'ago' + '<img alt="Image" class="on-show-photo" src="'+
+                                  src+'">')
+    })
+  }
+
+  clickPictureToShow();
+})

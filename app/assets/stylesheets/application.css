@@ -11,3 +11,102 @@
  *= require_self
  *= require_tree .
  */
+
+@import 'bootstrap';
+
+body {
+  background-image: url('blurred.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0;
+  /*background: #CDEEE0;*/
+}
+
+.user-photo {
+  width: 70%;
+  padding: 30px;
+  margin-top: 40px;
+  margin: 50px;
+  background: #E3D9F2;
+  border: solid black 2px;
+}
+
+.medium-photo {
+  width: 450px;
+  padding: 30px;
+  margin: 10px;
+  margin-left: 70px;
+  background: #E3D9F2;
+  border: solid black 2px;
+}
+
+.user-photo:hover {
+  background: #4B89C3;
+  cursor: pointer;
+}
+
+.medium-photo:hover {
+  background: #C2EBE0;
+  cursor: pointer;
+}
+
+.photo-container {
+  margin-left: 50px;
+  width: 690px;
+  background: transparent;
+  float: left;
+  border-right: solid black 10px;
+}
+
+.user-container {
+  width: 690px;
+  height: 700px;
+  margin-top: 0;
+  float: left;
+  margin-left: 47%;
+  position: fixed;
+  background: #183949;
+  color: white;
+  a:link{
+    color: white;
+  }
+}
+
+.navbar {
+  position: fixed;
+  text-decoration: none;
+  float: left;
+  background: white;
+}
+
+.navbar li {
+  list-style-type: none;
+  height: 40px;
+  margin-bottom: 40px;
+  &:hover {
+    background: red;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.new-photo-page {
+  background: white;
+  width: 400px;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.on-show-photo {
+  width: 70%;
+  padding: 30px;
+  margin-top: 40px;
+  margin: 50px;
+  background: #E3D9F2;
+  border: solid black 2px;
+}
+

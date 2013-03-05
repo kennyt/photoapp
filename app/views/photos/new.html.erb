@@ -1,0 +1,11 @@
+<div class="new-photo-page">
+  <%= simple_form_for(@photo) do |f| %>
+    <p>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
