@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :photos
+  has_many :likes
+  has_many :liked_photos, :through => :likes, :source => :photo
 
   def self.find_for_facebook_oauth(auth)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

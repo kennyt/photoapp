@@ -22,16 +22,38 @@ $(function(){
       var timeCreated = $(this).attr('data_time');
       var photoAuthor = $(this).attr('data_user');
       var photoAuthorEmail = $(this).attr('data_user_email')
+      var liked = $(this).attr('data_liked')
       var src = $(this).attr('src')
 
       $('.user-container').empty();
       $('.user-container').append('<img alt="Image" class="on-show-photo" src="'+
                                   src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
                                   '">'+photoAuthorEmail+'</a> ~  ' + timeCreated +
-                                  'ago')
-      $('.user-container').append('')
+                                  'ago<br>')
+      if (liked == 'false'){
+        $('.user-container').append('<a class="like-button" href="#">like</a>')
+      }
+    })
+  }
+
+  var likeClickHandler = function(){
+    $('body').on('click', '.like-button', function(ev){
+      ev.preventDefault();
+      var photoId = $('.on-show-photo').attr('src').split('/')[2]
+
+      $.post(
+        '/likes.json',
+        {
+          'like':
+            { 'photo_id': photoId}
+        },
+        function(){
+          $('.like-button').remove();
+        }
+      )
     })
   }
 
   clickPictureToShow();
+  likeClickHandler();
 })

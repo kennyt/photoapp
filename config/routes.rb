@@ -4,6 +4,7 @@ Photoapp::Application.routes.draw do
   }
 
   resources :users
+  resources :likes, only: [:create]
   resources :photos do
     member do
       get 'image'

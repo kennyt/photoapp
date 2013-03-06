@@ -1,9 +1,10 @@
-<h1><%= current_user.username %></h1>
-
+<h1><%= @user.username %>
+  <span class="all-photos">all</span>
+  |
+  <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
+</h1>
 <div class="photo-container">
-  <% @photos.each do |photo| %>
-    <%= image_tag image_photo_path(photo), class: 'user-photo' %>
-  <% end %>
+  <%= render @photos %>
 </div>
 
 <div class="user-container">

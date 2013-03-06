@@ -6,13 +6,12 @@
   <div class="modal-body">
     <p>choose a photo to upload</p>
     <div class="new-photo-page">
-      <%= simple_form_for(@photo) do |f| %>
+      <%= simple_form_for(Photo.new) do |f| %>
         <p>
           <%= f.label :image %>
           <%= f.file_field :image %>
         </p>
         <div class="modal-footer">
-          <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> -->
           <%= f.submit %>
         </div>
       <% end %>

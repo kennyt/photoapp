@@ -23,6 +23,28 @@ body {
   padding: 0;
 }
 
+.shared-liked-photos {
+  color: white;
+  font-size: 50px;
+  &:hover {
+    cursor: pointer;
+    color: blue;
+  }
+}
+
+.all-photos {
+  font-size: 50px;
+  &:hover {
+    cursor: pointer;
+    color: blue;
+  }
+}
+
+.like-button {
+  margin-left: 300px;
+  font-size: 60px;
+}
+
 .login-page {
   background: white;
   margin-top: 5%;
