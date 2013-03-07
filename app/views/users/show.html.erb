@@ -5,6 +5,7 @@
     <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">liked</a>
   <% else %>
     <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
+    <a class="shared-liked-photos" href="/users/<%= @user.id %>?he_liked=1">your photos liked</a>
   <% end %>
 </h1>
 <div class="photo-container">

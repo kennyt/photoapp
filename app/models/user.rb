@@ -39,12 +39,14 @@ class User < ActiveRecord::Base
   end
 
   def find_mutual_photos(user_being_viewed)
-    Photo.joins("JOIN likes AS likes1, likes AS likes2 ON likes1.photo_id = likes2.photo_id AND likes1.photo_id = photos.id")
-         .where("likes1.user_id = ? and likes2.user_id = ?", user_being_viewed.id, id)
+    Photo.joins("JOIN likes AS likes1, likes AS likes2
+                 ON likes1.photo_id = likes2.photo_id AND likes1.photo_id = photos.id")
+         .where("likes1.user_id = ? AND likes2.user_id = ?", user_being_viewed.id, id)
   end
 
   def find_photos_liked_by_person(user_liking)
-    Photo.joins("JOIN likes AS likes1, users AS users1 ON users1.id = likes1.user_id AND photos.id = likes1.photo_id")
-         .where("likes1.user_id = ? and users1.id", 1, 5)
+    Photo.joins("JOIN likes AS likes1
+                 ON likes1.photo_id = photos.id")
+         .where("likes1.user_id = ? AND photos.user_id = ?", user_liking.id, id)
   end
 end
