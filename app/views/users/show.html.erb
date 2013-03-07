@@ -1,16 +1,23 @@
-<h1><%= @user.username %>
-  <a class="all-photos" href="/users/<%= @user.id %>">all</a>
-  |
-  <% if current_user == @user %>
-    <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">liked</a>
-  <% else %>
-    <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
-    <a class="shared-liked-photos" href="/users/<%= @user.id %>?he_liked=1">your photos liked</a>
-  <% end %>
-</h1>
 <div class="photo-container">
+  <h4><%= @user.username %>
+    <a class="all-photos" href="/users/<%= @user.id %>">all</a>
+    |
+    <% if current_user == @user %>
+      <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">liked</a>
+    <% else %>
+      <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
+      |
+      <a class="shared-liked-photos" href="/users/<%= @user.id %>?he_liked=1">yours</a>
+      |
+      <a class="shared-liked-photos" href="/users/<%= @user.id %>?you_liked=1">his</a>
+    <% end %>
+  </h4>
   <%= render @photos %>
 </div>
 
 <div class="user-container">
 </div>
+
+<script>
+ activateTweetAndFbShare();
+</script>

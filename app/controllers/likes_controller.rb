@@ -4,7 +4,6 @@ class LikesController < ApplicationController
                         :user_id => current_user.id)
     @like.save!
 
-
     respond_to do |format|
       format.json { render :json => current_user}
     end

@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
       user = User.create!(
         provider: auth.provider,
         uid: auth.uid,
+        username: auth.info.name,
         email: auth.info.email,
         access_token: auth.credentials.token,
         password: Devise.friendly_token[0,20]
@@ -45,8 +46,12 @@ class User < ActiveRecord::Base
   end
 
   def find_photos_liked_by_person(user_liking)
-    Photo.joins("JOIN likes AS likes1
-                 ON likes1.photo_id = photos.id")
+    Photo.joins("JOIN likes AS likes1 ON likes1.photo_id = photos.id")
          .where("likes1.user_id = ? AND photos.user_id = ?", user_liking.id, id)
+  end
+
+  def find_photos_you_liked_by_person(user_whose_photos_you_liked)
+    Photo.joins("JOIN likes AS likes1 ON likes1.photo_id = photos.id")
+         .where("likes1.user_id = ? AND photos.user_id = ?", id, user_whose_photos_you_liked)
   end
 end

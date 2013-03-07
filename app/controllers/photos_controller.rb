@@ -13,9 +13,8 @@ class PhotosController < ApplicationController
 
   def create
     image = params[:photo].delete(:image)
-    image = image.read if image
     @photo = current_user.photos.build(params[:photo])
-    @photo.image = image
+    @photo.image = image.read if image
 
     if @photo.save
       UserMailer.photo_post_inform(current_user).deliver
@@ -33,5 +32,14 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.destroy
+
+    respond_to do |format|
+      format.json { render :json => current_user }
+    end
   end
 end

@@ -8,8 +8,7 @@
     <div class="new-photo-page">
       <%= simple_form_for(Photo.new) do |f| %>
         <p>
-          <%= f.label :image %>
-          <%= f.file_field :image %>
+          <%= f.file_field :image_attached %>
         </p>
         <div class="modal-footer">
           <%= f.submit %>

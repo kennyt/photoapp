@@ -24,43 +24,41 @@ $(function(){
       var photoAuthorName = $(this).attr('data_username');
       var liked = $(this).attr('data_liked');
       var src = $(this).attr('src');
+      var photoId = $(this).attr('id')
       var userProfilePic = $(this).attr('data_user_profile')
-
 
       $('.user-container').empty();
       $('.user-container').append('<img alt="Image" class="on-show-photo" src="'+
-                                  src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
+                                  src+'" id='+photoId+'>' + '<a class="photo-info" href="/users/'+photoAuthor+
                                   '"><img src="'+userProfilePic+'">  '+photoAuthorName+'</a> ~  ' + timeCreated +
                                   ' ago<br>')
       if (liked == 'false'){
         $('.user-container').append('<a class="like-button" href="#">like</a>')
       }
+
+      // allows users to double-click to like
       if (clicked){
         $('.like-button').trigger('click')
       } else {
         clicked = true
+        setTimeout(function(){
+          clicked = false
+        }, 210)
       }
-      setTimeout(function(){
-        clicked = false
-      }, 170)
     })
   }
-
-  $('body').on('click', '.user-photo', function(){
-
-  })
 
   var likeClickHandler = function(){
     $('body').on('click', '.like-button', function(ev){
       ev.preventDefault();
-      var photoId = $('.on-show-photo').attr('src').split('/')[2];
+      var photoId = $('.on-show-photo').attr('id')
       $('#'+photoId).attr('data_liked', 'true');
 
       $.post(
         '/likes.json',
         {
           'like':
-            { 'photo_id': photoId}
+            { 'photo_id': photoId }
         },
         function(){
           $('.like-button').remove();
@@ -69,6 +67,41 @@ $(function(){
     })
   }
 
+  var deletePhotoClickHandler = function(){
+    $('body').on('click', '.delete-photo', function(){
+      var id = $(this).attr('data-photo-id')
+      $.post(
+        '/photos/'+$(this).attr('data-photo-id')+'.json',
+        {'_method' : 'delete'},
+        function(){
+          console.log('hi');
+          console.log(id);
+          $('.photo-holder-'+ id).remove();
+        })
+    })
+  }
+
   clickPictureToShow();
   likeClickHandler();
+  deletePhotoClickHandler();
 })
+
+// this method gets called on all pages that need facebook & twitter share
+activateTweetAndFbShare = function(){
+  // facebook
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=492172844179398";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // twitter
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){js=d.createElement(s);
+      js.id=id;js.src="https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+}

@@ -5,6 +5,8 @@ class UsersController < ApplicationController
       @photos = current_user.find_mutual_photos(@user)
     elsif params[:he_liked]
       @photos = current_user.find_photos_liked_by_person(@user)
+    elsif params[:you_liked]
+      @photos = current_user.find_photos_you_liked_by_person(@user)
     else
       @photos = @user.photos
     end
