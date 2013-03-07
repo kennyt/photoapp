@@ -64,4 +64,13 @@ Photoapp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'PhotoAppProd',
+      :access_key_id => 'AKIAISTDIW4MHIB6HUPQ',
+      :secret_access_key => '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'
+    }
+  }
 end

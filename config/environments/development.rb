@@ -37,4 +37,13 @@ Photoapp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'PhotoAppDevel',
+      :access_key_id => 'AKIAISTDIW4MHIB6HUPQ',
+      :secret_access_key => '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'
+    }
+  }
 end

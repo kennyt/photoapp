@@ -1,7 +1,11 @@
 <h1><%= @user.username %>
-  <span class="all-photos">all</span>
+  <a class="all-photos" href="/users/<%= @user.id %>">all</a>
   |
-  <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
+  <% if current_user == @user %>
+    <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">liked</a>
+  <% else %>
+    <a class="shared-liked-photos" href="/users/<%= @user.id %>?mutual=1">mutual</a>
+  <% end %>
 </h1>
 <div class="photo-container">
   <%= render @photos %>

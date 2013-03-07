@@ -16,13 +16,15 @@
   <% if user_signed_in? %>
     <li><%= link_to 'home', root_path %></li>
     <li><%= link_to 'self', user_path(current_user) %></li>
-    <li><a href="#myModal" role="button" class="btn" data-toggle="modal">upload</a></li>
+    <li><a href="#profilePicModal" data-toggle="modal">pro-pic</a></li>
+    <li><a href="#uploadPhotoModal" data-toggle="modal">upload</a></li>
     <li><%= link_to 'sign out', destroy_user_session_url, :method => :delete %></li>
   <% end %>
 </ul>
 
 <%= yield %>
   <%= render 'photos/upload_photo_modal' %>
+  <%= render 'photos/profile_picture_modal' %>
 </div>
 </body>
 </html>

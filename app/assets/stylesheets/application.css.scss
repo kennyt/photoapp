@@ -24,7 +24,7 @@ body {
 }
 
 .shared-liked-photos {
-  color: white;
+  color: #4FBF40;
   font-size: 50px;
   &:hover {
     cursor: pointer;
@@ -32,8 +32,13 @@ body {
   }
 }
 
+.photo-container {
+  background: white;
+}
+
 .all-photos {
   font-size: 50px;
+  color: #4FBF40;
   &:hover {
     cursor: pointer;
     color: blue;
@@ -60,6 +65,7 @@ body {
   padding: 30px;
   margin-top: 40px;
   margin: 50px;
+  margin-left: 63px;
   background: #E3D9F2;
   border: solid black 2px;
 }
@@ -84,9 +90,9 @@ body {
 }
 
 .photo-container {
-  margin-left: 50px;
+  margin-left: 150px;
   width: 690px;
-  background: transparent;
+  background: #D5F0F1;
   float: left;
   border-right: solid black 10px;
 }
@@ -110,15 +116,22 @@ body {
   position: fixed;
   text-decoration: none;
   float: left;
-  background: white;
+  background: transparent;
 }
 
 .navbar li {
   list-style-type: none;
   height: 40px;
+  width: 80px;
+  text-align: center;
   margin-bottom: 40px;
+  border-radius: 20px;
+  background: #D5F0F1;
   &:hover {
-    background: red;
+    background: #226731;
+    a {
+      color: white;
+    }
   }
   a {
     color: black;
@@ -134,20 +147,20 @@ body {
 }
 
 .on-show-photo {
-  width: 70%;
-  padding: 30px;
-  margin-top: 40px;
+  width: 75%;
+  padding: 0;
   margin: 50px;
+  margin-top: 12px;
   background: #E3D9F2;
   border: solid black 2px;
 }
 
 .photo-info {
   color: white;
-  margin-left: 260px;
+  margin-left: 210px;
 }
 
 h1 {
   margin-left: 270px;
-  color: white;
+  color: #4FBF40;
 }

@@ -1,18 +1,17 @@
-<div id="uploadPhotoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="profilePicModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Upload photo</h3>
+    <h3 id="myModalLabel">Profile Picture</h3>
   </div>
   <div class="modal-body">
     <p>choose a photo to upload</p>
     <div class="new-photo-page">
-      <%= simple_form_for(Photo.new) do |f| %>
+      <%= simple_form_for(@user) do |f| %>
         <p>
-          <%= f.label :image %>
-          <%= f.file_field :image %>
+          <%= f.file_field :profile_picture %>
         </p>
         <div class="modal-footer">
-          <%= f.submit %>
+          <%= f.submit "pro-pic-it" %>
         </div>
       <% end %>
     </div>

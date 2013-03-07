@@ -12,6 +12,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'paperclip'
+gem 'aws-sdk'
 
 gem "letter_opener", :group => :development
 # Gems used only for assets and not required

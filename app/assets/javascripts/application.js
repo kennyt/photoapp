@@ -15,31 +15,46 @@
 //= require bootstrap
 //= require_tree .
 
-
+clicked = false
 $(function(){
   var clickPictureToShow = function() {
     $('body').on('click', '.user-photo', function(){
       var timeCreated = $(this).attr('data_time');
       var photoAuthor = $(this).attr('data_user');
-      var photoAuthorEmail = $(this).attr('data_user_email')
-      var liked = $(this).attr('data_liked')
-      var src = $(this).attr('src')
+      var photoAuthorName = $(this).attr('data_username');
+      var liked = $(this).attr('data_liked');
+      var src = $(this).attr('src');
+      var userProfilePic = $(this).attr('data_user_profile')
+
 
       $('.user-container').empty();
       $('.user-container').append('<img alt="Image" class="on-show-photo" src="'+
                                   src+'">' + '<a class="photo-info" href="/users/'+photoAuthor+
-                                  '">'+photoAuthorEmail+'</a> ~  ' + timeCreated +
-                                  'ago<br>')
+                                  '"><img src="'+userProfilePic+'">  '+photoAuthorName+'</a> ~  ' + timeCreated +
+                                  ' ago<br>')
       if (liked == 'false'){
         $('.user-container').append('<a class="like-button" href="#">like</a>')
       }
+      if (clicked){
+        $('.like-button').trigger('click')
+      } else {
+        clicked = true
+      }
+      setTimeout(function(){
+        clicked = false
+      }, 170)
     })
   }
+
+  $('body').on('click', '.user-photo', function(){
+
+  })
 
   var likeClickHandler = function(){
     $('body').on('click', '.like-button', function(ev){
       ev.preventDefault();
-      var photoId = $('.on-show-photo').attr('src').split('/')[2]
+      var photoId = $('.on-show-photo').attr('src').split('/')[2];
+      $('#'+photoId).attr('data_liked', 'true');
 
       $.post(
         '/likes.json',
