@@ -3,7 +3,6 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.order('created_at DESC').all
-    @photo = Photo.new
     @user = current_user
   end
 

@@ -70,13 +70,13 @@ $(function(){
   var deletePhotoClickHandler = function(){
     $('body').on('click', '.delete-photo', function(){
       var id = $(this).attr('data-photo-id')
+      $('.photo-holder-'+ id).remove();
       $.post(
         '/photos/'+$(this).attr('data-photo-id')+'.json',
         {'_method' : 'delete'},
         function(){
           console.log('hi');
           console.log(id);
-          $('.photo-holder-'+ id).remove();
         })
     })
   }

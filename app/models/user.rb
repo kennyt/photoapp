@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_attached_file :profile_picture, :styles => {
     :big => "600x600>",
     :small => "70x70#"
-  }, :default_url => '/images/:style_blurred.jpg'
+  }
 
   has_many :photos
   has_many :likes

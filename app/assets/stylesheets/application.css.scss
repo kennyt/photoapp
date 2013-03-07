@@ -153,8 +153,6 @@ body {
 .user-container {
   width: 690px;
   height: 700px;
-  // margin: 0;
-  // padding: 0;
   margin-left: 47%;
   position: fixed;
   background: #183949;
@@ -177,7 +175,7 @@ body {
   width: 80px;
   text-align: center;
   margin-bottom: 40px;
-  border-radius: 20px;
+  border-radius: 100px;
   background: #D5F0F1;
   &:hover {
     background: #226731;
