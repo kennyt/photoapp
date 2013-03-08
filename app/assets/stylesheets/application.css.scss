@@ -23,12 +23,26 @@ body {
   padding: 0;
 }
 
+h2 {
+  margin-left: 20px;
+}
+
 .facebook-login {
   background: blue;
+  border-radius: 5px;
+  &:hover {
+    background: #CC7066;
+    color: black;
+    text-decoration: none;
+  }
   width: 150px;
   a {
     color: white;
   }
+}
+
+.form-inputs {
+  margin-left: 20px;
 }
 
 .shared-liked-photos {
@@ -121,6 +135,8 @@ body {
   margin-top: 5%;
   width: 400px;
   margin-left: 10%;
+  border-radius: 5px;
+  font-family: 'News Cycle'
 }
 
 .user-photo {
@@ -158,6 +174,11 @@ body {
   background: #D5F0F1;
   float: left;
   border-right: solid black 10px;
+}
+
+.alert {
+  background: transparent;
+  border: 0px;
 }
 
 .user-container {
@@ -226,4 +247,8 @@ h1 {
   margin-left: 270px;
   color: #CC7066;
   font-family: 'News Cycle', sans-serif;
+}
+
+.uiGrid {
+  margin-top: 5px;
 }
