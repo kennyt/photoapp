@@ -1,34 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '1.2.3'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'sqlite3'
 
-gem 'devise'
-gem 'koala'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'simple_form'
-gem 'bootstrap-sass'
-gem 'paperclip'
-gem 'aws-sdk'
-gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
-
-group :development, :test do
-  gem 'sqlite3'
-  gem "letter_opener"
-end
-
-group :production do
-  gem 'pg'
-end
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

@@ -45,13 +45,15 @@ class User < ActiveRecord::Base
          .where("likes1.user_id = ? AND likes2.user_id = ?", user_being_viewed.id, id)
   end
 
-  def find_photos_liked_by_person(user_liking)
-    Photo.joins("JOIN likes AS likes1 ON likes1.photo_id = photos.id")
-         .where("likes1.user_id = ? AND photos.user_id = ?", user_liking.id, id)
-  end
+  def find_photos_you_or_other_person_liked(user_being_viewed, type)
+    if type == 1
+      user_who_is_liking, user_who_is_posting = user_being_viewed, self
+    else
+      user_who_is_liking, user_who_is_posting = self, user_being_viewed
+    end
 
-  def find_photos_you_liked_by_person(user_whose_photos_you_liked)
     Photo.joins("JOIN likes AS likes1 ON likes1.photo_id = photos.id")
-         .where("likes1.user_id = ? AND photos.user_id = ?", id, user_whose_photos_you_liked)
+         .where("likes1.user_id = ? AND photos.user_id = ?",
+                 user_who_is_liking.id, user_who_is_posting.id)
   end
 end

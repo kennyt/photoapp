@@ -23,10 +23,19 @@ body {
   padding: 0;
 }
 
+.facebook-login {
+  background: blue;
+  width: 150px;
+  a {
+    color: white;
+  }
+}
+
 .shared-liked-photos {
   color: #581D3E;
   font-size: 50px;
   text-decoration: none;
+  font-family: 'News Cycle';
   &:hover {
     cursor: pointer;
     color: #CC7066;
@@ -84,6 +93,7 @@ body {
   font-size: 50px;
   color: #581D3E;
   text-decoration: none;
+  font-family: 'News Cycle';
   &:hover {
     cursor: pointer;
     color: #CC7066;
@@ -167,6 +177,7 @@ body {
   text-decoration: none;
   float: left;
   background: transparent;
+  font-family: 'News Cycle';
 }
 
 .navbar li {
@@ -214,4 +225,5 @@ body {
 h1 {
   margin-left: 270px;
   color: #CC7066;
+  font-family: 'News Cycle', sans-serif;
 }

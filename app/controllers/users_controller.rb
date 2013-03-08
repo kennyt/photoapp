@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     if params[:mutual]
       @photos = current_user.find_mutual_photos(@user)
     elsif params[:he_liked]
-      @photos = current_user.find_photos_liked_by_person(@user)
+      @photos = current_user.find_photos_you_or_other_person_liked(@user, 1)
     elsif params[:you_liked]
-      @photos = current_user.find_photos_you_liked_by_person(@user)
+      @photos = current_user.find_photos_you_or_other_person_liked(@user, 2)
     else
       @photos = @user.photos
     end
