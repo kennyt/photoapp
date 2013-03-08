@@ -40,20 +40,20 @@ class User < ActiveRecord::Base
   end
 
   def find_mutual_photos(user_being_viewed)
-    Photo.joins("JOIN likes AS likes1, likes AS likes2
-                 ON likes1.photo_id = likes2.photo_id AND likes1.photo_id = photos.id")
-         .where("likes1.user_id = ? AND likes2.user_id = ?", user_being_viewed.id, id)
+    Photo.joins("join likes as likes1, likes AS likes2
+                 on likes1.photo_id = likes2.photo_id and likes1.photo_id = photos.id")
+         .where("likes1.user_id = ? and likes2.user_id = ?", user_being_viewed.id, id)
   end
 
   def find_photos_you_or_other_person_liked(user_being_viewed, type)
     if type == 1
-      user_who_is_liking, user_who_is_posting = user_being_viewed, self
+      user_who_is_liking, user_who_posted = user_being_viewed, self
     else
-      user_who_is_liking, user_who_is_posting = self, user_being_viewed
+      user_who_is_liking, user_who_posted = self, user_being_viewed
     end
 
-    Photo.joins("JOIN likes AS likes1 ON likes1.photo_id = photos.id")
-         .where("likes1.user_id = ? AND photos.user_id = ?",
-                 user_who_is_liking.id, user_who_is_posting.id)
+    Photo.joins("join likes AS likes1 on likes1.photo_id = photos.id")
+         .where("likes1.user_id = ? and photos.user_id = ?",
+                 user_who_is_liking.id, user_who_posted.id)
   end
 end
