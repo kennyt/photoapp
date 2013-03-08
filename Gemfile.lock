@@ -173,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bootstrap-sass
+  bundler (= 1.2.3)
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails

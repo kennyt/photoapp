@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '1.2.3'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -16,17 +17,18 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'thin'
 
-gem "letter_opener", :group => :development
 # Gems used only for assets and not required
 # in production environments by default.
 
 group :development, :test do
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :production do
   gem 'pg'
 end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
